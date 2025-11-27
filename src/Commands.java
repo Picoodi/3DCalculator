@@ -1,6 +1,8 @@
+import java.awt.*;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.function.DoubleToIntFunction;
 
 /*
 With this class we get the specific user input required for further functions.
@@ -92,11 +94,68 @@ public class Commands {
     }
 
     static void mirror_point(){
-        return;
+        Scanner scanner = new Scanner(System.in);
+        Point point = null;
+        Point mirror_point = null;
+
+        try {
+            System.out.print("name of point = ");
+            String name = scanner.nextLine();
+
+            for (int i = 0; i < Main.points_list.size(); i++){
+                Point p = Main.points_list.get(i);
+                if (Objects.equals(p.name, name)){
+                    point = Main.points_list.get(i);
+                }
+            }
+
+
+            System.out.print("new name of mirrored point = ");
+            String new_name = scanner.nextLine();
+
+            System.out.print("Mirror = ");
+            String mirror = scanner.nextLine();
+
+
+            if(Objects.equals(mirror, "point")){
+                System.out.print("name of the mirror point = ");
+                String name_mirror_point = scanner.nextLine();
+
+                for (int i = 0; i < Main.points_list.size(); i++){
+                    Point p = Main.points_list.get(i);
+                    if (Objects.equals(p.name, name_mirror_point)){
+                        mirror_point = Main.points_list.get(i);
+                    }
+                }
+
+            }
+            Point Mirror_Point = Point_Functions.mirror_point(mirror,point,mirror_point, new_name);
+            if( Mirror_Point != null)
+                Main.points_list.add(Mirror_Point);
+
+        } catch (NumberFormatException e) {
+            System.out.println("There has been a problem with your input.");
+        }
     }
 
     static void position_vector(){
-        return;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name of point = ");
+        String point_name = scanner.nextLine();
+
+        System.out.print("name for vector = ");
+        String vector_name = scanner.nextLine();
+
+        for (int i = 0; i < Main.points_list.size(); i++){
+            Point p = Main.points_list.get(i);
+            if (Objects.equals(p.name, point_name)){
+                //Here we directly create the object
+                Vectors vector = new Vectors(vector_name, p.x, p.y, p.z);
+                Main.vectors_list.add(vector);
+            }
+        }
+
     }
 
     static void vector(){

@@ -14,8 +14,4 @@ public class Point {
     void info(){
         System.out.println("Name:" + this.name + " | Coordinates: " + x + "|" + y + "|" + z + " | Type: Point");
     }
-
-    void rename(String new_name){
-        name = new_name;
-    }
 }
