@@ -8,7 +8,7 @@ public class Main {
     public static ArrayList<Point> points_list = new ArrayList<>();
     public static ArrayList<Vectors> vectors_list = new ArrayList<>();
 
-    public static void main() {
+    static void main() {
 
 
         Scanner scanner = new Scanner(System.in); //For reading input
