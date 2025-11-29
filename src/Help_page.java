@@ -44,7 +44,7 @@ public class Help_page {
         System.out.println("- magnitude vector                       magnitude of a specific vector");
         System.out.println("- add vectors                            add two given vectors");
         System.out.println("- subtract vectors                       subtract two given vectors");
-        System.out.println("- negative vector                        creates the negative vector of the given one");
+        System.out.println("- negative vector                        changes the given vector into its negative");
         System.out.println("- multiply vector                        skalar multiplication of 1 vector");
         System.out.println("- scalar product                         calculates the scalar and angle of two vectors");
         System.out.println("- cross product                          calculates the cross product of two vectors");

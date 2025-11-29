@@ -1,8 +1,6 @@
 import java.awt.*;
 import java.util.Objects;
 import java.util.Scanner;
-import java.util.Vector;
-import java.util.function.DoubleToIntFunction;
 
 /*
 With this class we get the specific user input required for further functions.
@@ -183,8 +181,7 @@ public class Commands {
         }
     }
 
-    static void vector_points(){
-        return;
+    static void vector_between_points(){
     }
 
     static void delete_vector(){
@@ -240,31 +237,131 @@ public class Commands {
     }
 
     static void magnitude_vector(){
-        return;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name = ");
+        String name = scanner.nextLine();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                System.out.println("Magnitude is: " + Vector_Functions.magnitude_of_vector(v));
+            }
+        }
     }
 
     static void add_vectors(){
-        return;
+        Vectors vec1 = null;
+        Vectors vec2 = null;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name of first = ");
+        String name = scanner.nextLine();
+
+        System.out.print("name of second = ");
+        String name2 = scanner.nextLine();
+
+        System.out.print("new name = ");
+        String new_name = scanner.nextLine();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                vec1 = Main.vectors_list.get(i);
+            }
+            else if (Objects.equals(v.name, name2)){
+                vec2 = Main.vectors_list.get(i);
+            }
+        }
+
+        if(vec1 == null || vec2 == null){
+            System.out.println("There has been a problem with your input.");
+        }
+        else {
+            try{
+                Vectors vector = Vector_Functions.add_vectors(vec1, vec2, new_name);
+                Main.vectors_list.add(vector);
+            }
+            catch(NumberFormatException e) {
+                System.out.println("There has been a problem with your input.");
+            }
+        }
     }
 
     static void subtract_vectors(){
-        return;
+        Vectors vec1 = null;
+        Vectors vec2 = null;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name of first = ");
+        String name = scanner.nextLine();
+
+        System.out.print("name of second = ");
+        String name2 = scanner.nextLine();
+
+        System.out.print("new name = ");
+        String new_name = scanner.nextLine();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                vec1 = Main.vectors_list.get(i);
+            }
+            else if (Objects.equals(v.name, name2)){
+                vec2 = Main.vectors_list.get(i);
+            }
+        }
+
+        if(vec1 == null || vec2 == null){
+            System.out.println("There has been a problem with your input.");
+        }
+        else {
+            try{
+                Vectors vector = Vector_Functions.subtract_vectors(vec1, vec2, new_name);
+                Main.vectors_list.add(vector);
+            }
+            catch(NumberFormatException e) {
+                System.out.println("There has been a problem with your input.");
+            }
+
+        }
     }
 
     static void negative_vector(){
-        return;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name = ");
+        String name = scanner.nextLine();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                Vector_Functions.negative_vector(v);
+            }
+        }
     }
 
-    static void multiply_vector(){
-        return;
+    static void multiply_vector_by_number(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name = ");
+        String name = scanner.nextLine();
+
+        System.out.println("number = ");
+        double number = scanner.nextDouble();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                Vector_Functions.multiply_vector(v, number);
+            }
+        }
     }
 
     static void scalar_product(){
-        return;
     }
 
     static void cross_product(){
-        return;
     }
 
 }

@@ -1,10 +1,10 @@
 public class Point {
     String name;
-    float x;
-    float y;
-    float z;
+    double x;
+    double y;
+    double z;
 
-    public Point(String Name, float x_coordinate, float y_coordinate, float z_coordinate){
+    public Point(String Name, double x_coordinate, double y_coordinate, double z_coordinate){
         this.name = Name;
         this.x = x_coordinate;
         this.y = y_coordinate;

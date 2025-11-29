@@ -26,7 +26,7 @@ public class Main {
             commandMap.put("mirror point", Commands::mirror_point);
             commandMap.put("position vector", Commands::position_vector);
             commandMap.put("vector", Commands::vector);
-            commandMap.put("vector points", Commands::vector_points);
+            commandMap.put("vector points", Commands::vector_between_points);
             commandMap.put("delete vector", Commands::delete_vector);
             commandMap.put("show vector", Commands::show_vector);
             commandMap.put("rename vector", Commands::rename_vector);
@@ -35,7 +35,7 @@ public class Main {
             commandMap.put("add vectors", Commands::add_vectors);
             commandMap.put("subtract vectors", Commands::subtract_vectors);
             commandMap.put("negative vector", Commands::negative_vector);
-            commandMap.put("multiply vector", Commands::multiply_vector);
+            commandMap.put("multiply vector", Commands::multiply_vector_by_number);
             commandMap.put("scalar product", Commands::scalar_product);
             commandMap.put("cross product", Commands::cross_product);
 
