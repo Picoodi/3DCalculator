@@ -182,6 +182,41 @@ public class Commands {
     }
 
     static void vector_between_points(){
+        Point point1 = null;
+        Point point2 = null;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name of first = ");
+        String name = scanner.nextLine();
+
+        System.out.print("name of second = ");
+        String name2 = scanner.nextLine();
+
+        System.out.print("new name = ");
+        String new_name = scanner.nextLine();
+
+        for (int i = 0; i < Main.points_list.size(); i++) {
+            Point v = Main.points_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                point1 = Main.points_list.get(i);
+            }
+            else if (Objects.equals(v.name, name2)){
+                point2 = Main.points_list.get(i);
+            }
+        }
+
+        if(point1 == null || point2 == null){
+            System.out.println("There has been a problem with your input.");
+        }
+        else {
+            try{
+                Vectors vector = Vector_Functions.vector_between_points(point1, point2, new_name);
+                Main.vectors_list.add(vector);
+            }
+            catch(NumberFormatException e) {
+                System.out.println("There has been a problem with your input.");
+            }
+        }
     }
 
     static void delete_vector(){
@@ -359,9 +394,76 @@ public class Commands {
     }
 
     static void scalar_product(){
+        Vectors vec1 = null;
+        Vectors vec2 = null;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("name of first = ");
+        String name = scanner.nextLine();
+
+        System.out.print("name of second = ");
+        String name2 = scanner.nextLine();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                vec1 = Main.vectors_list.get(i);
+            }
+            else if (Objects.equals(v.name, name2)){
+                vec2 = Main.vectors_list.get(i);
+            }
+        }
+
+        if(vec1 == null || vec2 == null){
+            System.out.println("There has been a problem with your input.");
+        }
+        else {
+            try{
+                double scalar = Vector_Functions.scalar_product(vec1, vec2);
+                System.out.println("The scalar is " + scalar);
+            }
+            catch(NumberFormatException e) {
+                System.out.println("There has been a problem with your input.");
+            }
+
+        }
     }
 
     static void cross_product(){
-    }
+        Vectors vec1 = null;
+        Vectors vec2 = null;
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("name of first = ");
+        String name = scanner.nextLine();
+
+        System.out.print("name of second = ");
+        String name2 = scanner.nextLine();
+
+        System.out.print("new name = ");
+        String new_name = scanner.nextLine();
+
+        for (int i = 0; i < Main.vectors_list.size(); i++) {
+            Vectors v = Main.vectors_list.get(i);
+            if (Objects.equals(v.name, name)) {
+                vec1 = Main.vectors_list.get(i);
+            }
+            else if (Objects.equals(v.name, name2)){
+                vec2 = Main.vectors_list.get(i);
+            }
+        }
+
+        if(vec1 == null || vec2 == null){
+            System.out.println("There has been a problem with your input.");
+        }
+        else {
+            try{
+                Vectors vector = Vector_Functions.cross_product(vec1, vec2, new_name);
+                Main.vectors_list.add(vector);
+            }
+            catch(NumberFormatException e) {
+                System.out.println("There has been a problem with your input.");
+            }
+        }
+    }
 }
